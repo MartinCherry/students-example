@@ -17,13 +17,16 @@ public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
+
     @ManyToMany
     @JoinTable(name = "students_courses", joinColumns = @JoinColumn(name = "student_id"), inverseJoinColumns =
     @JoinColumn(name = "course_id"))
     List<Course> courses = new ArrayList<>();
+
     @NotNull
     @NotEmpty
     private String name;
+
     @NotNull
     @NotEmpty
     private String surname;
@@ -68,9 +71,6 @@ public class Student {
         this.surname = surname;
     }
 
-    public List<String> getCoursesToStringList() {
-        return this.courses.stream().map(course -> course.getName() + " - " + course.getTutor().getName()).toList();
-    }
 
     @Override
     public boolean equals(Object o) {

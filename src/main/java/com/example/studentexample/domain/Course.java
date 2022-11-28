@@ -71,4 +71,9 @@ public class Course {
     public int hashCode() {
         return Objects.hash(getId(), getName(), getTutor());
     }
+
+    @Override
+    public String toString() {
+        return this.name + " - " + this.tutor.getName() + " " + this.tutor.getSurname();
+    }
 }

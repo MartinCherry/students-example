@@ -2,15 +2,15 @@ package com.example.studentexample.dto;
 
 import java.util.Objects;
 
-public class StudentRequest {
+public class AddStudentRequest {
     private String name;
     private String surname;
     private int courseId;
 
-    public StudentRequest() {
+    public AddStudentRequest() {
     }
 
-    public StudentRequest(String name, String surname, int courseId) {
+    public AddStudentRequest(String name, String surname, int courseId) {
         this.name = name;
         this.surname = surname;
         this.courseId = courseId;
@@ -45,7 +45,7 @@ public class StudentRequest {
         if (this == o) {
             return true;
         }
-        if (!(o instanceof StudentRequest that)) {
+        if (!(o instanceof AddStudentRequest that)) {
             return false;
         }
         return getCourseId() == that.getCourseId() && getName().equals(that.getName()) &&

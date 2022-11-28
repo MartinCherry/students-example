@@ -3,8 +3,8 @@ package com.example.studentexample.services;
 import com.example.studentexample.domain.Course;
 import com.example.studentexample.domain.Student;
 import com.example.studentexample.domain.Tutor;
-import com.example.studentexample.dto.CourseRequest;
-import com.example.studentexample.dto.StudentRequest;
+import com.example.studentexample.dto.AddCourseRequest;
+import com.example.studentexample.dto.AddStudentRequest;
 import com.example.studentexample.repository.CourseRepository;
 import com.example.studentexample.repository.StudentRepository;
 import com.example.studentexample.repository.TutorRepository;
@@ -43,10 +43,10 @@ public class MainService {
     }
 
 
-    public void addCourse(CourseRequest courseRequest) {
-        Tutor tutor = getTutor(courseRequest.getTutor_id());
+    public void addCourse(AddCourseRequest addCourseRequest) {
+        Tutor tutor = getTutor(addCourseRequest.getTutorId());
 
-        Course course = new Course(courseRequest.getName(), tutor);
+        Course course = new Course(addCourseRequest.getName(), tutor);
         courseRepository.save(course);
     }
 
@@ -73,7 +73,7 @@ public class MainService {
         return studentRepository.findAll();
     }
 
-    public void createStudentFromRequest(StudentRequest request) {
+    public void createStudentFromRequest(AddStudentRequest request) {
         Course course = getCourse(request.getCourseId());
         Student student = new Student(request.getName(), request.getSurname());
         student.addCourse(course);
@@ -90,6 +90,6 @@ public class MainService {
     public List<String> getStudentsCourses(int id) {
         Student student = studentRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Student doesn't exist in DB"));
-        return student.getCoursesToStringList();
+        return student.getCourses().stream().map(Course::toString).toList();
     }
 }

@@ -4,8 +4,8 @@ import com.example.studentexample.controllers.MainController;
 import com.example.studentexample.domain.Course;
 import com.example.studentexample.domain.Student;
 import com.example.studentexample.domain.Tutor;
-import com.example.studentexample.dto.CourseRequest;
-import com.example.studentexample.dto.StudentRequest;
+import com.example.studentexample.dto.AddCourseRequest;
+import com.example.studentexample.dto.AddStudentRequest;
 import com.example.studentexample.services.MainService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -20,9 +20,9 @@ public class MainControllerTest {
 
     Tutor testTutor = new Tutor();
     Course testCourse = new Course();
-    CourseRequest testCourseRequest = new CourseRequest();
+    AddCourseRequest testAddCourseRequest = new AddCourseRequest();
     Student testStudent = new Student();
-    StudentRequest testStudentRequest = new StudentRequest();
+    AddStudentRequest testAddStudentRequest = new AddStudentRequest();
 
 
     @Mock
@@ -38,8 +38,8 @@ public class MainControllerTest {
     }
     @Test
     public void shoulVerifydAddCourse(){
-        controller.addCourse(testCourseRequest);
-        verify(service).addCourse(testCourseRequest);
+        controller.addCourse(testAddCourseRequest);
+        verify(service).addCourse(testAddCourseRequest);
     }
     @Test
     public void shouldVerifyAddStudent(){
@@ -48,8 +48,8 @@ public class MainControllerTest {
     }
     @Test
     public void shouldVerifyAddStudentRequest(){
-        controller.createFromRequest(testStudentRequest);
-        verify(service).createStudentFromRequest(testStudentRequest);
+        controller.createFromRequest(testAddStudentRequest);
+        verify(service).createStudentFromRequest(testAddStudentRequest);
     }
     @Test
     public void shouldVerifyAddCourseToStudent(){

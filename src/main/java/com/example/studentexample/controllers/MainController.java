@@ -3,8 +3,8 @@ package com.example.studentexample.controllers;
 import com.example.studentexample.domain.Course;
 import com.example.studentexample.domain.Student;
 import com.example.studentexample.domain.Tutor;
-import com.example.studentexample.dto.CourseRequest;
-import com.example.studentexample.dto.StudentRequest;
+import com.example.studentexample.dto.AddCourseRequest;
+import com.example.studentexample.dto.AddStudentRequest;
 import com.example.studentexample.services.MainService;
 import org.springframework.web.bind.annotation.*;
 
@@ -37,8 +37,8 @@ public class MainController {
 
 
     @PostMapping("/addCourse")
-    public void addCourse(@RequestBody CourseRequest courseRequest) {
-        service.addCourse(courseRequest);
+    public void addCourse(@RequestBody AddCourseRequest addCourseRequest) {
+        service.addCourse(addCourseRequest);
     }
 
     @GetMapping("/getCourses/{id}")
@@ -52,7 +52,7 @@ public class MainController {
         return service.getAllCourses();
     }
 
-    @PostMapping("/addStudent/")
+    @PostMapping("/addStudent")
     public void addStudent(@RequestBody Student student) {
         service.addStudent(student);
     }
@@ -69,7 +69,7 @@ public class MainController {
     }
 
     @PostMapping("/addStudentRequest")
-    public void createFromRequest(@RequestBody StudentRequest request) {
+    public void createFromRequest(@RequestBody AddStudentRequest request) {
         service.createStudentFromRequest(request);
     }
 
@@ -78,7 +78,7 @@ public class MainController {
         service.addCourseToStudent(studentId, courseId);
     }
 
-    @GetMapping("getStudentCourses/{id}")
+    @GetMapping("/getStudentCourses/{id}")
     public List<String> getStudentsCourses(@PathVariable int id) {
         return service.getStudentsCourses(id);
     }
