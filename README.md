@@ -10,6 +10,7 @@ Application gives user options to:
 * Add Student
 * Register Course to Student
 
+
 ---
 
 ## Primary options
@@ -32,8 +33,8 @@ http://localhost:8080/students/addCourse {POST}
 
 ```
 {
-  "name": "string",
-  "tutor_id": 0
+  "name": "String",
+  "tutorId": Integer
 }
 ```
 To add student ->
@@ -42,8 +43,8 @@ http://localhost:8080/students/addStudent {POST}
 
 ```
 {
-  "name": "string",
-  "surname": "string"
+  "name": "String",
+  "surname": "String"
 }
 ```
 
@@ -53,9 +54,9 @@ http://localhost:8080/students/addStudentRequest {POST}
 
 ```
 {
-  "name": "string",
-  "surname": "string",
-  "courseId": 0
+  "name": "String",
+  "surname": "String",
+  "courseId": Integer
 }
 ```
 
@@ -68,8 +69,9 @@ To get all Courses with their Tutors, that Studant has been registered to ->
 
 http://localhost:8080/students/getStudentCourses {GET}
 
+---
 
-## Secondary options
+## Bonus options
 
 | Function | Request Type| Description|
 |:-----:|:---:|:--:|
@@ -80,34 +82,34 @@ http://localhost:8080/students/getStudentCourses {GET}
 | http://localhost:8080/students/geStudents/{StudentId} |  GET | Get specific Student |
 | http://localhost:8080/students/getStudents |  GET | Get All Students |
 
+---
 
----
 # Databases
----
 
 Application is configured to run on H2 database.
 You can connect to database console from http://localhost:8080/h2-console
 
 <img width="570" alt="Screenshot 2022-11-28 at 10 12 52" src="https://user-images.githubusercontent.com/109744061/204226638-87242734-632e-49d3-8c3b-7d549883c1ee.png">
 
-
-___
+---
 
 ## PostgreSQL
 
-To configur database to work on PostgreSQL, change ```student-app.connection-type=[in-memory]``` [application.properties](https://github.com/MartinCherry/students-example/blob/main/src/main/resources/application.properties) 
+To configur database to work on PostgreSQL, change ```student-app.connection-type=in-memory``` [application.properties](https://github.com/MartinCherry/students-example/blob/main/src/main/resources/application.properties) 
 
-to ```[postgresql]```
+to ```student-app.connection-type=postgresql```
 
-and configure [DatabaseConfiguration.java](https://github.com/MartinCherry/students-example/blob/main/src/main/java/com/example/studentexample/configuration/DatabaseConfiguration.java)
+And change values to - 
+```
+student-app.database.username={Your PostgreSQL DB Username}
+student-app.database.password={Your PostgreSQL DB Password}
+student-app.database.url={Your PostgreSQL DB URL}
 
 ```
-    String username = [PostgreSQL username];
-    String password = [PostgreSQL password];
-    String url = [PostgreSQL url];
-```
+
 
 ---
+
 ## Swagger
 
 Application is configured to work with swagger.
