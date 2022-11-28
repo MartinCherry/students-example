@@ -67,7 +67,7 @@ http://localhost:8080/students/{studentID}/{courseID} {POST}
 
 To get all Courses with their Tutors, that Studant has been registered to ->
 
-http://localhost:8080/students/getStudentCourses {GET}
+http://localhost:8080/students/getStudentCourses/{studentId} {GET}
 
 ---
 
