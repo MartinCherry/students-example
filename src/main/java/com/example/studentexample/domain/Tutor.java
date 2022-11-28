@@ -13,11 +13,12 @@ public class Tutor {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private int id;
+
     @NotNull
     @NotEmpty
     private String name;
+
     @NotNull
     @NotEmpty
     private String surname;

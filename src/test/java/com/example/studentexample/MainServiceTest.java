@@ -25,10 +25,10 @@ public class MainServiceTest {
 
     @Mock
     StudentRepository studentRepository;
-    
+
     @Mock
     TutorRepository tutorRepository;
-    
+
     @Mock
     CourseRepository courseRepository;
 
@@ -41,6 +41,7 @@ public class MainServiceTest {
                 () -> service.getTutor(1));
         Assertions.assertEquals(exception.getStatusCode(), HttpStatus.NOT_FOUND);
     }
+
     @Test
     public void shouldThrowErrorWhenCourseNotFound() {
         ResponseStatusException exception = Assertions.assertThrows(ResponseStatusException.class,
@@ -56,7 +57,7 @@ public class MainServiceTest {
     }
 
     @Test
-    public void shouldReturnCourses(){
+    public void shouldReturnCourses() {
         Student testStudent = createStudent();
 
         Mockito.doAnswer(invocation -> Optional.of(testStudent)).when(studentRepository).findById(1);
@@ -66,25 +67,25 @@ public class MainServiceTest {
         Assertions.assertEquals(expectedResult, returnStudent.getCoursesToStringList());
     }
 
-    public Tutor createTutor(){
+    public Tutor createTutor() {
         Tutor tutor = new Tutor();
         tutor.setName("John");
         tutor.setSurname("Smith");
         return tutor;
     }
 
-    public Course createCourse(){
+    public Course createCourse() {
         Course course = new Course();
         course.setName("IT");
         course.setTutor(createTutor());
         return course;
     }
 
-    public Student createStudent(){
+    public Student createStudent() {
         Student student = new Student();
         student.setName("Martins");
         student.setSurname("Kirsis");
-        for (int i = 0; i < 5; i ++) {
+        for (int i = 0; i < 5; i++) {
             student.addCourse(createCourse());
         }
         return student;

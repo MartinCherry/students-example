@@ -7,6 +7,5 @@
     <include file="db/changelog/changes/0001-create_table_tutors.sql"/>
     <include file="db/changelog/changes/0002-create_table_courses.sql"/>
     <include file="db/changelog/changes/0003-create_table_students.sql"/>
-    <include
-            file="db/changelog/changes/0004-create_table_students-courses.sql"/>
+    <include file="db/changelog/changes/0004-create_table_students-courses.sql"/>
 </databaseChangeLog>

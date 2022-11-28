@@ -1,6 +1,7 @@
 package com.example.studentexample.dto;
 
 public class AddCourseRequest {
+
     private String name;
     private int tutorId;
 

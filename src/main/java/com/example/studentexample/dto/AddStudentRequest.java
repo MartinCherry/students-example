@@ -3,6 +3,7 @@ package com.example.studentexample.dto;
 import java.util.Objects;
 
 public class AddStudentRequest {
+
     private String name;
     private String surname;
     private int courseId;

@@ -32,32 +32,37 @@ public class MainControllerTest {
     MainController controller;
 
     @Test
-    public void shouldVerifyAddTutor(){
+    public void shouldVerifyAddTutor() {
         controller.addTutor(testTutor);
         verify(service).addTutor(testTutor);
     }
+
     @Test
-    public void shoulVerifydAddCourse(){
+    public void shoulVerifydAddCourse() {
         controller.addCourse(testAddCourseRequest);
         verify(service).addCourse(testAddCourseRequest);
     }
+
     @Test
-    public void shouldVerifyAddStudent(){
+    public void shouldVerifyAddStudent() {
         controller.addStudent(testStudent);
         verify(service).addStudent(testStudent);
     }
+
     @Test
-    public void shouldVerifyAddStudentRequest(){
+    public void shouldVerifyAddStudentRequest() {
         controller.createFromRequest(testAddStudentRequest);
         verify(service).createStudentFromRequest(testAddStudentRequest);
     }
+
     @Test
-    public void shouldVerifyAddCourseToStudent(){
+    public void shouldVerifyAddCourseToStudent() {
         controller.addCourseToStudent(1, 1);
         verify(service).addCourseToStudent(1, 1);
     }
+
     @Test
-    public void shouldVerifyReturnCourseList(){
+    public void shouldVerifyReturnCourseList() {
         controller.getStudentsCourses(1);
         verify(service).getStudentsCourses(1);
     }
