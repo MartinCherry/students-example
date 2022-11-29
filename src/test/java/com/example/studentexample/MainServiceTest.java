@@ -62,9 +62,9 @@ public class MainServiceTest {
 
         Mockito.doAnswer(invocation -> Optional.of(testStudent)).when(studentRepository).findById(1);
         Student returnStudent = service.getStudent(1);
-        List<String> expectedResult = testStudent.getCoursesToStringList();
+        List<String> expectedResult = testStudent.getCourses().stream().map(Course::toString).toList();
 
-        Assertions.assertEquals(expectedResult, returnStudent.getCoursesToStringList());
+        Assertions.assertEquals(expectedResult, returnStudent.getCourses().stream().map(Course::toString).toList());
     }
 
     public Tutor createTutor() {
