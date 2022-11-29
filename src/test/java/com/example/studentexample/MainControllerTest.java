@@ -19,7 +19,6 @@ import static org.mockito.Mockito.verify;
 public class MainControllerTest {
 
     Tutor testTutor = new Tutor();
-    Course testCourse = new Course();
     AddCourseRequest testAddCourseRequest = new AddCourseRequest();
     Student testStudent = new Student();
     AddStudentRequest testAddStudentRequest = new AddStudentRequest();
